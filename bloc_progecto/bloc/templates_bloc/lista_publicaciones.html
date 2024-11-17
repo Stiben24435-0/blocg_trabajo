@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Publicaciones</title>
+</head>
+<body>
+    <h1>Lista de Publicaciones</h1>
+    <a href="{% url 'nueva-publicacion' %}">Crear nueva publicación</a>
+    <ul>
+        {% for publicacion in publicaciones %}
+        <li>
+            <a href="{% url 'detalle-publicacion' publicacion.pk %}">{{ publicacion.titulo }}</a> - {{ publicacion.fecha_publicacion }}
+        </li>
+        {% empty %}
+        <li>No hay publicaciones disponibles.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

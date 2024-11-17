@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ publicacion.titulo }}</title>
+</head>
+<body>
+    <h1>{{ publicacion.titulo }}</h1>
+    <p>{{ publicacion.contenido }}</p>
+    <p>Autor: {{ publicacion.autor }} | Fecha: {{ publicacion.fecha_publicacion }}</p>
+    <a href="{% url 'lista-publicaciones' %}">Volver a la lista</a>
+</body>
+</html>
