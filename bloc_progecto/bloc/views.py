@@ -8,9 +8,11 @@ def lista_publicaciones(request):
     publicaciones = Publicacion.objects.all().order_by('-fecha_publicacion')
     return render(request, 'bloc/lista_publicaciones.html', {'publicaciones': publicaciones})
 
-
 def detalle_publicacion(request, pk):
-      Publicacion = get_object_or_404(Publicacion, pk=pk)
+    publicacion = get_object_or_404(Publicacion, pk=pk)  # Cambia 'Publicacion' por 'publicacion'
+    return render(request, 'bloc/detalle_publicacion.html', {'publicacion': publicacion})
+
+
    
 class CrearPublicacion(CreateView):
      model = Publicacion
