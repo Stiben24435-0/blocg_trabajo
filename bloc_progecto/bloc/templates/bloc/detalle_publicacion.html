@@ -27,8 +27,8 @@
 
         /* Estilos del header */
         header {
-            background-color: rgba(0, 123, 255, 0.9); /* Fondo azul semi-transparente */
-            color: white;
+            background-color: transparent; /* Elimina el fondo azul */
+            color: #333; /* Cambié el color a negro oscuro para el texto */
             padding: 20px;
             text-align: center;
             width: 100%;
@@ -43,6 +43,7 @@
         h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
+            color: #333; /* Color negro oscuro para el título */
         }
 
         /* Estilos del contenido principal */
@@ -86,13 +87,12 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>{{ publicacion.titulo }}</h1>
-    </header>
     <div class="contenido">
+        <h1>{{ publicacion.titulo }}</h1> <!-- Ahora el título está dentro del cuadro -->
         <p>{{ publicacion.contenido }}</p>
         <p class="info">Autor: {{ publicacion.autor }} | Fecha: {{ publicacion.fecha_publicacion }}</p>
         <a href="{% url 'lista-publicaciones' %}">Volver a la lista</a>
     </div>
 </body>
+</html>
 </html>
