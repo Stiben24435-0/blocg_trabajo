@@ -9,7 +9,7 @@ def lista_publicaciones(request):
     return render(request, 'bloc/lista_publicaciones.html', {'publicaciones': publicaciones})
 
 def detalle_publicacion(request, pk):
-    publicacion = get_object_or_404(Publicacion, pk=pk)  # Cambia 'Publicacion' por 'publicacion'
+    publicacion = get_object_or_404(Publicacion, pk=pk)  
     return render(request, 'bloc/detalle_publicacion.html', {'publicacion': publicacion})
 
 
