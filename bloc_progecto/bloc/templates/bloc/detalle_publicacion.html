@@ -1,13 +1,98 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ publicacion.titulo }}</title>
+    <style>
+        /* Estilos del body */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'imagen/fondo.jpg' %}"); /* Ruta correcta de la imagen */
+            background-size: cover; /* La imagen cubre toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            background-attachment: fixed; /* Fija la imagen al hacer scroll */
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Estilos del header */
+        header {
+            background-color: rgba(0, 123, 255, 0.9); /* Fondo azul semi-transparente */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10; /* Asegura que el encabezado esté encima de todo */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        /* Estilos del contenido principal */
+        .contenido {
+            margin: 80px 20px 20px; /* Espaciado adecuado para no tapar el header */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente blanco */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .info {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 15px;
+        }
+
+        /* Estilos para los enlaces */
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ publicacion.titulo }}</h1>
-    <p>{{ publicacion.contenido }}</p>
-    <p>Autor: {{ publicacion.autor }} | Fecha: {{ publicacion.fecha_publicacion }}</p>
-    <a href="{% url 'lista-publicaciones' %}">Volver a la lista</a>
+    <header>
+        <h1>{{ publicacion.titulo }}</h1>
+    </header>
+    <div class="contenido">
+        <p>{{ publicacion.contenido }}</p>
+        <p class="info">Autor: {{ publicacion.autor }} | Fecha: {{ publicacion.fecha_publicacion }}</p>
+        <a href="{% url 'lista-publicaciones' %}">Volver a la lista</a>
+    </div>
 </body>
 </html>

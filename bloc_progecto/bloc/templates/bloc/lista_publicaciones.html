@@ -1,19 +1,102 @@
+{% load static %}  
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Publicaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'imagen/fondo.jpg' %}"); /* Ruta correcta de la imagen */
+            background-size: cover; /* La imagen cubre toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            background-attachment: fixed; /* Fija la imagen al hacer scroll */
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff; /* Cambié el color del título para mejor contraste */
+            font-size: 2.5em;
+            margin-top: 40px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 40px 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        li {
+            background-color: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 123, 255, 0.2); /* Borde semi-transparente */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        li:hover {
+            transform: scale(1.02); /* Efecto de aumento al pasar el mouse */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        li a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        li a:hover {
+            color: #0056b3;
+        }
+
+        .empty-message {
+            color: #777;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Lista de Publicaciones</h1>
     <a href="{% url 'nueva-publicacion' %}">Crear nueva publicación</a>
     <ul>
         {% for publicacion in publicaciones %}
-        <li>
-            <a href="{% url 'detalle-publicacion' publicacion.pk %}">{{ publicacion.titulo }}</a> - {{ publicacion.fecha_publicacion }}
-        </li>
+            <li>
+                <a href="{% url 'detalle-publicacion' publicacion.pk %}">{{ publicacion.titulo }}</a> - {{ publicacion.fecha_publicacion }}
+            </li>
         {% empty %}
-        <li>No hay publicaciones disponibles.</li>
+            <li class="empty-message">No hay publicaciones disponibles.</li>
         {% endfor %}
     </ul>
 </body>
