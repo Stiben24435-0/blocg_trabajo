@@ -1,3 +1,6 @@
+## creado por john stiben garcia cartagena y christian marmolejo
+
+
 # Blog en Django
 
 Este es un proyecto de blog simple desarrollado en Django como parte de un taller. Permite crear, visualizar y listar publicaciones. Los usuarios pueden agregar nuevas entradas a través de un formulario web sin necesidad de acceder al panel de administración.

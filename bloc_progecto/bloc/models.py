@@ -1,3 +1,5 @@
+# codigo de john stiben garcia cartagena
+
 from django.db import models
 from django.utils import timezone
 

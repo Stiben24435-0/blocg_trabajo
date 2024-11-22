@@ -1,3 +1,4 @@
+# codigo de john stiben garcia cartagena
 from django.urls import path
 from .views import lista_publicaciones, detalle_publicacion, CrearPublicacion
 

@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# codigo de john stiben garcia cartagena
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
